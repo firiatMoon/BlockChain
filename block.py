@@ -25,9 +25,7 @@ class Block():
     def validate_transaction(self, transaction: Transaction):
         string = str(f'{transaction.id_transaction}:{transaction.type_transaction}:{transaction.from_value}:{transaction.to_value}:{transaction.amount}')
         check_signature = hashlib.md5(string.encode("utf-8"))
-        if check_signature.hexdigest() == transaction.signature:
-            return True
-        return False
+        return check_signature.hexdigest() == transaction.signature
 
     def add_transaction(self, transaction: Transaction):
         number = transaction.id_transaction

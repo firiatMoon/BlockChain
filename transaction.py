@@ -34,15 +34,11 @@ class Transaction:
             raise ValueError
         if type_trans == self.EMISSION:
             self.from_value = None
-            self.type_transaction = type_trans
-        else:
-            self.type_transaction = type_trans
+        self.type_transaction = type_trans
 
     def set_from(self, from_name: str):
         if len(from_name) < 2 or len(from_name) > 10:
             raise ValueError
-        if self.type_transaction == self.EMISSION:
-            self.from_value = None
         else:
             self.from_value = from_name
 
